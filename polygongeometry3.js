@@ -21,8 +21,8 @@ function PolygonGeometry(sides, location, radius) {
 		// Add 90 degrees so we start at +Y axis, rotate counterclockwise around
 		var angle = (Math.PI/2) + (pt / sides) * 2 * Math.PI;
 
-		var x = Math.cos(angle) + location.x;
-		var y = Math.sin(angle) + location.y;
+		var x = radius*Math.cos(angle) + location.x;
+		var y = radius*Math.sin(angle) + location.y;
 		
 		// Save the vertex location
 		geo.vertices.push( new THREE.Vector3( x, y, 0.0 ) );
@@ -64,14 +64,14 @@ function init() {
 	renderer.gammaInput = true;
 	renderer.gammaOutput = true;
 	renderer.setSize(canvasWidth, canvasHeight);
-	renderer.setClearColorHex( 0xffffff, 1.0 );
+	renderer.setClearColorHex( 0xd2d2d2E, 1.0 );
 	
 }
 function showGrids() {
   	// Background grid and axes. Grid step size is 1, axes cross at 0, 0
 	Coordinates.drawGrid({size:100,scale:1,orientation:"z"});
-	Coordinates.drawAxes({axisLength:4,axisOrientation:"x",axisRadius:0.02});
-	Coordinates.drawAxes({axisLength:3,axisOrientation:"y",axisRadius:0.02});
+	Coordinates.drawAxes({axisLength:11,axisOrientation:"x",axisRadius:0.02});
+	Coordinates.drawAxes({axisLength:11,axisOrientation:"y",axisRadius:0.02});
 }
 function addToDOM() {
     var container = document.getElementById('container');
@@ -89,8 +89,8 @@ function render() {
 try {
   init();
   showGrids();
-  var geo = PolygonGeometry(9, new THREE.Vector3( 5, 5, 0 ), 4);
-  var material = new THREE.MeshBasicMaterial( { color: 0xff0000, side: THREE.FrontSide } );
+  var geo = PolygonGeometry(12, new THREE.Vector3( 5, 5, 0 ), 4);
+  var material = new THREE.MeshBasicMaterial( { color: 0xFFD200, side: THREE.FrontSide } );
   var mesh = new THREE.Mesh( geo, material );
   scene.add( mesh );
   addToDOM();

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pirate_HW4</title>
+<style>
+    body{
+        background-color:#2E8B57;
+        margin:30px
+        font-size: 16px;
+    }
+    
+</style>
+<script src="lib/three.min.js"></script>
+<script src="lib/Coordinates.js"></script>
+<script src="lib/OrbitAndPanControls.js"></script>
+<script src="lib/dat.gui.min.js"></script>
+    
+<script>
+            function loadJS(file) {
+                var js = document.createElement("script");
+                    js.type = "application/javascript";
+                    js.src = file;
+                    document.body.appendChild(js);
+            }
+</script>
+</script>
+</head>
+<body>
+<m>Please select what you want: </m>
+<select onchange="loadJS(this.value);">
+    <option value="#">Choice</option>
+    <option value="polygongeometry1.js">Assignment1</option>
+    <option value="polygongeometry2.js">Assignment2</option>
+    <option value="polygongeometry3.js">Assignment3</option>
+    <option value="buildstair.js">Assignment4</option>
+    <option value="drinkngbird.js">Assignment5</option>
+</select>
+<f>
+<div id="container">
+</div>
+</body>
+</html>
